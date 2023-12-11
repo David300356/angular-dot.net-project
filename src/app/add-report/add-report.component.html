@@ -1,0 +1,292 @@
+<div class="mat-elevation-z8 my-table">
+    <form class="example-form" [formGroup]="reportForm">
+        <h2>Add Report</h2>
+    
+        <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Complainant Name</mat-label>
+            <input matInput placeholder="name" formControlName="name">
+            <mat-error *ngIf="this.Name.invalid">{{getNameErrors()}}</mat-error>
+        </mat-form-field>
+        <div class="full-width">
+            <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>Complainant Email</mat-label>
+                <input matInput placeholder="email" formControlName="email">
+                <mat-error *ngIf="this.Email.invalid">{{getEmailErrors()}}</mat-error>
+            </mat-form-field>
+            <div class="spacer"></div>
+            <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>Complainant Phone</mat-label>
+                <input matInput placeholder="phone" formControlName="phone">
+                <mat-error *ngIf="this.Phone.invalid">{{getPhoneErrors()}}</mat-error>
+            </mat-form-field> 
+        </div>
+
+        <div class="full-width">
+            <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>Complainant Occupation</mat-label>
+                <input matInput placeholder="Occupation" formControlName="occupation">
+                <mat-error *ngIf="this.Occupation.invalid">Required</mat-error>
+            </mat-form-field>
+            <div class="spacer"></div>
+            <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>City</mat-label>
+                <input matInput placeholder="City" formControlName="city">
+                <mat-error *ngIf="this.City.invalid">Required</mat-error>
+            </mat-form-field> 
+        </div>
+        <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Address</mat-label>
+            <input matInput placeholder="Address" formControlName="address">
+            <mat-error *ngIf="this.Address.invalid">{{getAddressErrors()}}</mat-error>
+        </mat-form-field> 
+        <div class="full-width">
+            <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>ID No.</mat-label>
+                <input matInput placeholder="ID Number" formControlName="idNumber">
+                <mat-error *ngIf="this.IDNumber.invalid">{{getIDNumberErrors()}}</mat-error>
+            </mat-form-field> 
+            <div class="spacer"></div>
+            <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>Investigating officer</mat-label>
+                <mat-select formControlName="police">
+                    <mat-option *ngFor="let item of officers" [value]="item.id">{{item.name}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+        <div class="full-width">
+            <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>Case Type</mat-label>
+                <mat-select id="case-type" formControlName="casetype">
+                    <mat-option *ngFor="let item of Casetype" [value]="item.id">{{item.name}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+            <div class="spacer"></div>
+            <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>Case List</mat-label>
+                <mat-select id="case-list" formControlName="caselist" multiple>
+                    <mat-option *ngFor="let item of selectedCase" [value]="item.id">{{item.caseName}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+        <!-- <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>DATE</mat-label>
+            <input type="datetime-local" matInput placeholder="Date" formControlName="createdOn">
+            <mat-error *ngIf="this.createdOn.invalid">Required</mat-error>
+        </mat-form-field> -->
+        <div class="full-width align">
+            <h3><input type="checkbox" formControlName="takeFingerPrint"></h3>
+            <h3>Take fingerprints</h3>
+        </div>
+
+        <h3>Add Suspect</h3>
+        <div>
+            <table formArrayName="suspects" style="margin: 2%;width: 90%;"
+                class="mat-table cdk-table mat-elevation-z8 table-bordered">
+                <thead>
+                    <tr>
+                        <td class="disNone">Id</td>
+                        <td>Name</td>
+                        <td>ID NO.</td>
+                        <td>Tel No.</td>
+                        <td>City</td>
+                        <td>Address</td>
+                        <td>Statement</td>
+                        <!-- <td class="noSeen">Date</td> -->
+              
+                        <td>Action</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let item of suspects.controls;let i=index" [formGroupName]="i">
+                        <td class="disNone">
+                            <div class="flexDis">
+                                <input class="form-control" formControlName="id">
+                            </div>
+                        </td>
+                        <td>
+                            <div class="flexDis">
+                                <input class="form-control" formControlName="name">
+                                <label class="deletedRed" *ngIf="suspects.controls[i].get('name')?.invalid">{{getSuspectsErrors(i)}}</label>
+                            </div>  
+                        </td>
+                        <td>
+                            <div class="flexDis">
+                                <input class="form-control" formControlName="idNumber">
+                                <label class="deletedRed" *ngIf="suspects.controls[i].get('idNumber')?.invalid">{{getSusIDErrors(i)}}</label>
+
+                            </div>
+                        </td>
+                        <td>
+                            <div class="flexDis">
+                                <input class="form-control" formControlName="phone">
+                                <label class="deletedRed" *ngIf="suspects.controls[i].get('phone')?.invalid">{{getSusPhoneErrors(i)}}</label>
+
+                            </div>       
+                        </td>
+                        <td>
+                            <div class="flexDis">
+                                <input class="form-control" formControlName="city">
+                                <label class="deletedRed" *ngIf="suspects.controls[i].get('city')?.invalid">{{getSusCityErrors(i)}}</label>
+
+                            </div>
+                        </td>
+                        <td>
+                            <div class="flexDis">
+                                <input class="form-control" formControlName="address">
+                                <label class="deletedRed" *ngIf="suspects.controls[i].get('address')?.invalid">{{getSusAddressErrors(i)}}</label>
+
+                            </div>
+                        </td>
+                        <td>
+                            <div class="flexDis">
+                                <textarea class="form-control" formControlName="sstatement"></textarea>
+                                <!-- <label class="deletedRed" *ngIf="suspects.controls[i].get('address')?.invalid">{{getSusAddressErrors(i)}}</label> -->
+
+                            </div>
+                        </td>
+                        <td>
+                            <a mat-raised-button color="accent"  (click)="RemoveSuspect(item)">Remove</a>
+                        </td>
+    
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td colspan="7">
+                            <a mat-raised-button color="primary" (click)="AddSuspects()">Add Suspect (+)</a>
+                        </td>
+                    </tr>
+                </tfoot>
+    
+            </table>
+        </div>
+        <h3>Add Witness</h3>
+        <div>
+            <table formArrayName="witnesses" style="margin: 2%;width: 96%;"
+                class="mat-table cdk-table mat-elevation-z8 table-bordered">
+                <thead>
+                    <tr>
+                        <td class="disNone">Id</td>
+                        <td>Name</td>
+                        <td>ID NO.</td>
+                        <td>Tel No.</td>
+                        <td>City</td>
+                        <td>Address</td>
+                        <td>Statement</td>
+                        <td>Action</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let item of witnesses.controls;let i=index" [formGroupName]="i">
+                        <td class="disNone">
+                            <div class="flexDis">
+                                <input class="form-control" formControlName="id">
+                            </div>
+                        </td>
+                        <td>
+                            <div class="flexDis">
+                                <input class="form-control" formControlName="name">
+                                <label class="deletedRed" *ngIf="witnesses.controls[i].get('name')?.invalid">{{getwitnessesErrors(i)}}</label>
+                            </div>
+                           
+                        </td>
+                        <td>
+                            <div class="flexDis">
+                                <input class="form-control" formControlName="idNumber">
+                                <label class="deletedRed" *ngIf="witnesses.controls[i].get('idNumber')?.invalid">{{getWitIDErrors(i)}}</label>
+                            </div>
+
+                        </td>
+                        <td>
+                            <div class="flexDis">
+                                <input class="form-control" formControlName="phone">
+                                <label class="deletedRed" *ngIf="witnesses.controls[i].get('phone')?.invalid">{{getWitPhoneErrors(i)}}</label>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="flexDis">
+                                <input class="form-control" formControlName="city">
+                                <label class="deletedRed" *ngIf="witnesses.controls[i].get('city')?.invalid">{{getwitnessesCityErrors(i)}}</label>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="flexDis">
+                                <input class="form-control" formControlName="address">
+                                <label class="deletedRed" *ngIf="witnesses.controls[i].get('address')?.invalid">{{getwitnessesAddressErrors(i)}}</label>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="flexDis">
+                                <textarea class="form-control" formControlName="wstatement"></textarea>
+                                <!-- <label class="deletedRed" *ngIf="witnesses.controls[i].get('address')?.invalid">{{getwitnessesAddressErrors(i)}}</label> -->
+                            </div>
+                        </td>
+                        <td>
+                            <a mat-raised-button color="accent" (click)="RemoveWitness(item)">Remove</a>
+                        </td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td colspan="7">
+                            <a mat-raised-button color="primary"  (click)="AddWitnesses()">Add Witness (+)</a>
+                        </td>
+                    </tr>
+                </tfoot>
+    
+            </table>
+        </div>
+        <h3>Add Statement</h3>
+        <p class="deletedRed">{{delMsg}}</p>
+        <div>
+            <table formArrayName="statements" style="margin: 2%;width: 96%;"
+                class="mat-table cdk-table mat-elevation-z8 table-bordered">
+                <thead>
+                    <tr class="disNone">
+                        <td>Id</td>
+                        <td>Statement</td>
+                        <td>Action</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let item of statements.controls;let i=index" [formGroupName]="i">
+                        <td class="disNone">
+                            <div class="flexDis">
+                                <input class="form-control" formControlName="id">
+                            </div>
+                        </td>
+                        <td>
+                            <div class="flexDis">
+                                <textarea class="form-control" formControlName="statement"></textarea>
+                                <label class="deletedRed" *ngIf="statements.controls[i].get('statement')?.invalid">{{getStatAddressErrors(i)}}</label>    
+                            </div>
+                            
+                        </td>
+                        
+                        <td>
+                            <a mat-raised-button color="accent" (click)="RemoveStatement(item)">Remove</a>
+                        </td>
+    
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td colspan="7">
+                            <a mat-raised-button color="primary" (click)="AddStatements()">Add Statement (+)</a>
+                        </td>
+                    </tr>
+                </tfoot>
+    
+            </table>
+        </div>
+        <div class="example-button-row" style="padding: 1%">
+            <button mat-raised-button color="primary" [disabled]="this.reportForm.invalid" (click)="addNewReport()">Save</button> |
+            <a mat-raised-button color="accent" (click)="redirecttolist()">Cancel</a>
+        </div>
+    
+</form> 
+</div>
+

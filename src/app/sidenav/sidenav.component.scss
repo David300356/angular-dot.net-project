@@ -1,0 +1,25 @@
+:host {
+    display: block;
+  }
+  
+  mat-list-item {
+    padding: 0px 30px;
+    color: white;
+    &:hover {
+      //background-color: rgba($color: #fff, $alpha: 0.1);
+      background-color: rgba($color: #a31a1a, $alpha: 0.1);
+      cursor: pointer;
+    }
+  
+    &.active {
+      //background-color: rgba($color: #fff, $alpha: 0.1);
+      background-color: rgb(12, 105, 122);
+    }
+  }
+  .alignDiv{
+    display: flex;
+    align-items: center;
+    mat-icon{
+      margin-right: 10px;
+    }
+  }

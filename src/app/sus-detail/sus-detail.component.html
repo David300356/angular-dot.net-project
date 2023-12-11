@@ -1,0 +1,200 @@
+<div class="report-cover">
+    <div class="report">
+        <div class="comp-cover">
+            <h2>Suspect Detail</h2>
+            <div class="comp">
+                <table>
+                    <tr>
+                        <div class="separator">
+                            <th>Name</th>
+                            <td>{{product?.name}}</td>
+                        </div>
+                        <div class="separator">
+                            <th>ID Number</th>
+                            <td>{{product?.idNumber}}</td>
+                        </div>    
+                    </tr>
+                    <tr>
+                        <div class="separator">
+                            <th>Phone</th>
+                            <td>{{product?.phone}}</td>
+                        </div>
+                        <div class="separator">
+                            <th>City</th>
+                            <td>{{product?.city}}</td>
+                        </div> 
+                    </tr>
+                    <tr>
+                        <div class="separator">
+                            <th>Addresss</th>
+                            <td>{{product?.address}}</td>
+                        </div>
+                        <div class="separator">
+                            <th>Date</th>
+                            <td>{{product?.createdOn}}</td>
+                        </div> 
+                    </tr>
+                </table>
+            </div>
+        </div>
+        
+        <div class="comp-cover">
+            <h2>Complainant Details</h2>
+            <div class="comp">
+                <table>
+                    <tr>
+                        <div class="separator">
+                            <th>OB</th>
+                            <td>{{product?.report.ob}}</td>
+                        </div>
+                        <div class="separator">
+                            <th>City</th>
+                            <td>{{product?.report.city}}</td>
+                        </div>    
+                    </tr>
+                    <tr>
+                        <div class="separator">
+                            <th>Phone</th>
+                            <td>{{product?.report.phone}}</td>
+                        </div>
+                        <div class="separator">
+                            <th>ID  Number</th>
+                            <td>{{product?.report.idNumber}}</td>
+                        </div> 
+                    </tr>
+                    <tr>
+                        <div class="separator">
+                            <th>Name</th>
+                            <td>{{product?.report.name}}</td>
+                        </div>
+                        <div class="separator">
+                            <th>Email</th>
+                            <td>{{product?.report.email}}</td>
+                        </div> 
+                    </tr>
+                    <tr>
+                        <div class="separator">
+                            <th>Date</th>
+                            <td>{{product?.report.createdOn}}</td>
+                        </div>
+                        <div class="separator">
+                            <th>Finger Print taken</th>
+                            <td>{{product?.report.takeFingerprint}}</td>
+                        </div> 
+                    </tr>
+                    <tr>
+                        <div class="separator">
+                            <th>Case Type</th>
+                            <td>{{product?.report.casetype.name}}</td>
+                        </div>
+                        <div class="separator">
+                            <th>Case List</th>
+                            <td>{{product?.report.caselist.caseName}}</td>
+                        </div> 
+                    </tr>
+                </table>
+            </div>
+        </div>
+        
+        <div class="comp-cover">
+            <h2>Investigating Officers details</h2>
+            <div class="comp">
+                <table>
+                    <tr>
+                        <div class="separator">
+                            <th>Name</th>
+                            <td>{{product?.report.police.name}}</td>
+                        </div>
+                        <div class="separator">
+                            <th>Phone</th>
+                            <td>{{product?.report.police.phone}}</td>
+                        </div>    
+                    </tr>
+                    <tr>
+                        <div class="separator">
+                            <th>Email</th>
+                            <td>{{product?.report.police.email}}</td>
+                        </div>
+                        <div class="separator">
+                            <th>ID Number</th>
+                            <td>{{product?.report.police.idNumber}}</td>
+                        </div> 
+                    </tr>
+                    <tr>
+                        <div class="separator">
+                            <th>Serial Number</th>
+                            <td>{{product?.report.police.serialNumber}}</td>
+                        </div>
+                        <div class="separator">
+                            <th>Date</th>
+                            <td>{{product?.report.police.createdOn}}</td>
+                        </div> 
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <div class="witness-cover">
+            <h2>Witnesses List</h2>
+            <div class="witness">
+                <table>
+                    <tr>
+                        <th>Name</th>
+                        <th>Phone</th>
+                        <th>ID Number</th>
+                        <th>City</th>
+                        <th>Address</th>
+                        <th>Date</th>
+                    </tr>
+                    <tr   *ngFor="let witness of product?.report.witnesses">
+                        <td>{{witness.name}}</td>
+                        <td>{{witness.phone}}</td>
+                        <td>{{witness.idNumber}}</td>
+                        <td>{{witness.city}}</td>
+                        <td>{{witness.address}}</td>
+                        <td>{{witness.createdOn}}</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <div class="witness-cover">
+            <h2>Full list of Suspects in the Case</h2>
+            <div class="witness">
+                <table>
+                    <tr>
+                        <th>Name</th>
+                        <th>Phone</th>
+                        <th>ID Number</th>
+                        <th>City</th>
+                        <th>Address</th>
+                        <th>Date</th>
+                    </tr>
+                    <tr   *ngFor="let suspect of product?.report.suspects">
+                        <td>{{suspect.name}}</td>
+                        <td>{{suspect.phone}}</td>
+                        <td>{{suspect.idNumber}}</td>
+                        <td>{{suspect.city}}</td>
+                        <td>{{suspect.address}}</td>
+                        <td>{{suspect.createdOn}}</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <div class="witness-cover">
+            <h2>statements List</h2>
+            <div class="witness">
+                <table>
+                    <tr>
+                        <th>Statements</th>
+                    </tr>
+                    <tr   *ngFor="let statement of product?.report.statements">
+                        <td>{{statement.statement}}</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <a mat-raised-button color="accent" appOpenPolice (click)="goBack()" >Go To List</a>
+
+    </div>
+</div>
+
+

@@ -1,0 +1,72 @@
+<div class="mat-elevation-z8 my-table">
+    <form class="example-form" [formGroup]="arrestForm">
+        <h2>Add Arrest</h2>
+        <div class="full-width">
+            <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>OB Number</mat-label>
+                <mat-select formControlName="ob">
+                    <mat-option *ngFor="let item of list" [value]="item.id">{{item.name}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+            <div class="spacer"></div>
+            <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>Suspect Name</mat-label>
+                <mat-select formControlName="suspect">
+                    <mat-option *ngFor="let item of selectedCase" [value]="item.id">{{item.name}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+        <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Comment</mat-label>
+            <textarea matInput placeholder="Comment" formControlName="comment"></textarea>
+        </mat-form-field>
+        <div class="full-width align">
+            <h3><input type="checkbox" formControlName="hasEvidence"></h3>
+            <h3>HasEvidence</h3>
+        </div>
+       
+        <h3>Add Arrest Item</h3>
+        <p class="red">{{delMsg}}</p>
+        <div>
+            <table formArrayName="arrest" style="margin: 2%;width: 96%;"
+                class="mat-table cdk-table mat-elevation-z8 table-bordered">
+                <thead>
+                    <tr>
+                        <td>Id</td>
+                        <td>Arrest Items</td>
+                        <td>Action</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let item of arrest.controls;let i=index" [formGroupName]="i">
+                        <td>
+                            <input class="form-control" formControlName="id">
+                        </td>
+                        <td>
+                            <input class="form-control" formControlName="item">
+                        </td>
+                        <td>
+                            <a mat-raised-button color="accent" (click)="RemoveItem(item)">Remove</a>
+                        </td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td colspan="7">
+                            <a mat-raised-button color="primary" (click)="AddItems()">Add Item (+)</a>
+                        </td>
+                    </tr>
+                </tfoot>
+    
+            </table>
+        </div>
+        <div class="example-button-row" style="padding: 1%">
+            <button mat-raised-button color="primary" [disabled]="this.arrestForm.invalid" (click)="addNewArrest()">Save</button> |
+            <a mat-raised-button color="accent" (click)="redirecttolist()">Cancel</a>
+        </div>
+    
+</form> 
+</div>
+

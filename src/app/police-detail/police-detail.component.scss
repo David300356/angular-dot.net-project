@@ -1,0 +1,39 @@
+.cover-details{
+    display: flex;
+    margin: auto;
+    justify-content: center;
+    padding: 50px 0;
+    width: 100%;
+    .details{
+        width: 600px;
+        padding: 15px 15px;
+        box-shadow: rgba(161, 160, 160, 0.35) 0px 5px 15px;
+        font-size: 16px;
+        h2{
+            display: flex;
+            justify-content: center;
+            padding: 5px 0;
+            text-transform: capitalize;
+        }
+        ul{
+            list-style: none;
+            .myRow{
+                display: flex;
+                justify-content: space-between;
+                padding: 6px 0;
+                table{
+                    width: 300px;
+                    tr{
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: flex-start;
+                        padding: 5px 0;
+    
+                    }
+                }
+                
+            }
+        }
+        
+    }  
+}

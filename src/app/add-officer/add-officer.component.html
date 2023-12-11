@@ -1,0 +1,67 @@
+<div class="mat-elevation-z8 my-table">
+    <form class="example-form" [formGroup]="policeForm">
+        <h2>Add Police</h2>
+        <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Name</mat-label>
+            <input matInput placeholder="name" formControlName="name">
+            <mat-error *ngIf="this.Name.invalid">Required</mat-error>
+        </mat-form-field>
+        <div class="full-width">
+            <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>Email</mat-label>
+                <input matInput placeholder="email" formControlName="email">
+                <mat-error *ngIf="this.Email.invalid">Required</mat-error>
+            </mat-form-field>
+            <div class="spacer"></div>
+            <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>Phone</mat-label>
+                <input matInput placeholder="phone" formControlName="phone">
+                <mat-error *ngIf="this.Phone.invalid">Required</mat-error>
+            </mat-form-field> 
+        </div>
+
+        <div class="full-width">
+            <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>Serial Number</mat-label>
+                <input  matInput placeholder="Serial Number" formControlName="serialNumber">
+                <mat-error *ngIf="this.SerialNumber.invalid">Required</mat-error>
+            </mat-form-field>
+            <div class="spacer"></div>
+            <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>ID Number</mat-label>
+                <input  matInput placeholder="ID Number" formControlName="idNumber">
+                <mat-error *ngIf="this.IDNumber.invalid">Required</mat-error>
+            </mat-form-field> 
+        </div>
+
+        <div class="full-width">
+            <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>Rank</mat-label>
+                <mat-select formControlName="rank">
+                    <mat-option *ngFor="let item of rankItems" [value]="item.id">{{item.rankName}}
+        
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+            <div class="spacer"></div>
+            <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>Station</mat-label>
+                <mat-select formControlName="station">
+                    <mat-option *ngFor="let item of stationItems" [value]="item.id">{{item.name}}
+        
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+        <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>DATE</mat-label>
+            <input type="datetime-local" matInput placeholder="Date" formControlName="createdOn">
+            <mat-error *ngIf="this.createdOn.invalid">Required</mat-error>
+        </mat-form-field>
+        <div class="example-button-row" style="padding: 1%">
+            <button mat-raised-button color="primary" (click)="addNewPolice()" [disabled]="this.policeForm.invalid">Save</button> |
+            <a mat-raised-button color="accent" (click)="redirecttolist()">Cancel</a>
+        </div>
+    
+</form> 
+</div>

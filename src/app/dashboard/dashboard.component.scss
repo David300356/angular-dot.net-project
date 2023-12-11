@@ -1,0 +1,63 @@
+.dash-cover{
+    padding: 50px 50px;
+    .dash{
+        display: flex;
+        flex-direction: column;
+        .dash-items{
+            display: grid;
+            grid-template-columns: auto auto auto auto;
+            gap: 10px;
+            margin-bottom: 20px;
+            .dash-item{
+                padding: 1px 1px;
+                width: 150px;
+                height: 150px;
+                background-color: goldenrod;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+                border-radius: 50%;
+                h1{
+                    font-size: 40px;
+                    font-family: Helvetica Neue;
+                }
+                p{
+                    font-family: poppins;
+                }
+                
+            }
+            .one{
+                background-color: rgb(0, 153, 255);
+            }
+            .two{
+                background-color: greenyellow;
+            }
+            .three{
+                background-color: aquamarine;
+            }
+            .four{
+                background-color: black;
+                color: white;
+            }
+            .five{
+                background-color: brown;
+                color: white;
+            }
+            .six{
+                background-color: cornflowerblue;
+            }
+            .seven{
+                background-color: darkmagenta;
+                color: white;
+            }
+            .eight{
+                background-color: brown;
+                color: white;
+            }
+        }
+    }
+}
+.graph{
+    width: 80%;
+}

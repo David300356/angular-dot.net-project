@@ -1,0 +1,46 @@
+<div class="mat-elevation-z8 my-table">
+    <form class="example-form" [formGroup]="stationForm">
+        <h2>Add Station</h2>
+        <p>{{addMsg}}</p>
+        <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Name</mat-label>
+            <input matInput placeholder="name" formControlName="name">
+            <mat-error *ngIf="this.Name.invalid">Required</mat-error>
+        </mat-form-field>
+        <div class="full-width">
+            <mat-form-field class="example-full-width" appearance="fill">
+                
+                <mat-label>Code</mat-label>
+                <input matInput placeholder="code" formControlName="code" (keyup)="search($event)">       
+                <mat-error *ngIf="this.Code.invalid">Required</mat-error>
+            </mat-form-field>
+            
+            <div class="spacer"></div>
+            <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>City</mat-label>
+                <input matInput placeholder="city" formControlName="city">
+                <mat-error *ngIf="this.City.invalid">Required</mat-error>
+            </mat-form-field> 
+        </div>
+
+        <div class="full-width">
+            <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>Address</mat-label>
+                <input matInput placeholder="address" formControlName="address">
+                <mat-error *ngIf="this.Address.invalid">Required</mat-error>
+            </mat-form-field>
+            <div class="spacer"></div>
+            <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>Phone</mat-label>
+                <input matInput placeholder="phone" formControlName="phone">
+                <mat-error *ngIf="this.Phone.invalid">Required</mat-error>
+            </mat-form-field> 
+        </div>
+    
+        <div class="example-button-row" style="padding: 1%">
+            <button mat-raised-button color="primary" (click)="addNewStation()" [disabled]="this.stationForm.invalid">Save</button> |
+            <a mat-raised-button color="accent" (click)="redirecttolist()">Cancel</a>
+        </div>
+    
+</form> 
+</div>

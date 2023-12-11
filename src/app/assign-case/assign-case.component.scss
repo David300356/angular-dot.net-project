@@ -1,0 +1,36 @@
+.cell-cover{
+    padding: 50px 50px;
+    .cell{
+        h2{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 30px 0;
+            text-decoration: underline;
+        }
+        display: flex;
+        flex-direction: column;
+        .cell-form{
+            margin-bottom: 50px;
+            .court-item{
+                display: flex;
+                mat-form-field{
+                    width: 100%;
+                }
+            }
+            
+        }
+        table{
+            margin-top: 60px;
+            margin: 0 auto;
+            width: 80%;
+            padding: 20px 20px;
+            background-color: rgb(224, 224, 223);
+            tr{
+                display: flex;
+                justify-content: space-between;
+                padding: 10px 0;
+            }
+        }
+    }
+}

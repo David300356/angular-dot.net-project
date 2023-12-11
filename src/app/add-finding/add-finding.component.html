@@ -1,0 +1,131 @@
+<div class="mat-elevation-z8 my-table">
+    <form class="example-form" [formGroup]="findingForm">
+        <h2>Add Findings</h2>
+
+        <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Complainant Name</mat-label>
+            <mat-select formControlName="ob">
+                <mat-option *ngFor="let item of reportsList" [value]="item.id">{{item.name}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+    
+        <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Findings summary</mat-label>
+            <textarea matInput placeholder="Findings summary" formControlName="description"></textarea>
+            <!-- <mat-error *ngIf="this.Description.invalid">{{getDEscErrors()}}</mat-error> -->
+        </mat-form-field>
+       
+        <h3>Add Evidence</h3>
+        <p class="deletedRed">{{delEvidenceMsg}}</p>
+        <div>
+            <table formArrayName="evidences" style="margin: 2%;width: 90%;"
+                class="mat-table cdk-table mat-elevation-z8 table-bordered">
+                <thead>
+                    <tr>
+                        <td class="disNone">Id</td>
+                        <td>Evidece type</td>
+                        <td>Evidence description</td>          
+                        <td>Action</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                    <tr *ngFor="let item of evidences.controls;let i=index" [formGroupName]="i">
+                        <td class="disNone">
+                            <div class="flexDis">
+                                <input class="form-control" formControlName="id">
+                            </div>
+                        </td>
+                        <td>
+                            <div class="flexDis">
+                                <input class="form-control" formControlName="name">
+                                <!-- <label class="deletedRed" *ngIf="evidences.controls[i].get('name')?.invalid">{{getSuspectsErrors(i)}}</label> -->
+                            </div>  
+                        </td>
+                        <td>
+                            <div class="flexDis">
+                                <textarea class="form-control" formControlName="description"></textarea>
+                                <!-- <label class="deletedRed" *ngIf="evidences.controls[i].get('idNumber')?.invalid">{{getSusIDErrors(i)}}</label> -->
+
+                            </div>
+                        </td>
+                        <td>
+                            <a mat-raised-button color="accent" (click)="RemoveEvidence(item)">Remove</a>
+                        </td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td colspan="7">
+                            <a mat-raised-button color="primary" (click)="AddEvidences()">Add Evidence (+)</a>
+                        </td>
+                    </tr>
+                </tfoot>
+    
+            </table>
+        </div>
+        <h3>Add Interview Done</h3>
+        <p class="deletedRed">{{delInterviewMsg}}</p>
+        <div>
+            <table formArrayName="interviews" style="margin: 2%;width: 96%;"
+                class="mat-table cdk-table mat-elevation-z8 table-bordered">
+                <thead>
+                    <tr>
+                        <td class="disNone">Id</td>
+                        <td>Interviwee Name</td>
+                        <td>Interviwee content</td>
+                        <td>Interviwee ID NO.</td>
+                        <td>Action</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let item of interviews.controls;let i=index" [formGroupName]="i">
+                        <td class="disNone">
+                            <div class="flexDis">
+                                <input class="form-control" formControlName="id" >
+                            </div>
+                        </td>
+                        <td>
+                            <div class="flexDis">
+                                <input class="form-control" formControlName="name">
+                                <!-- <label class="deletedRed" *ngIf="interviews.controls[i].get('name')?.invalid">{{getwitnessesErrors(i)}}</label> -->
+                            </div>
+                           
+                        </td>
+                        <td>
+                            <div class="flexDis">
+                                <textarea class="form-control" formControlName="description"></textarea>
+                                <!-- <label class="deletedRed" *ngIf="interviews.controls[i].get('content')?.invalid">{{getWitIDErrors(i)}}</label> -->
+                            </div>
+
+                        </td>
+                        <td>
+                            <div class="flexDis">
+                                <input class="form-control" formControlName="idNumber">
+                                <!-- <label class="deletedRed" *ngIf="interviews.controls[i].get('idNumber')?.invalid">{{getWitPhoneErrors(i)}}</label> -->
+                            </div>
+                        </td>
+                        <td>
+                            <a mat-raised-button color="accent" (click)="RemoveInterview(item)">Remove</a>
+                        </td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td colspan="7">
+                            <a mat-raised-button color="primary"  (click)="AddInterviews()">Add Interview (+)</a>
+                        </td>
+                    </tr>
+                </tfoot>
+    
+            </table>
+        </div>
+        <div class="example-button-row" style="padding: 1%">
+            <button mat-raised-button color="primary" [disabled]="this.findingForm.invalid" (click)="addNewFinding()">Save</button> |
+            <a mat-raised-button color="accent" (click)="redirecttolist()">Cancel</a>
+        </div>
+</form> 
+</div>
+
+

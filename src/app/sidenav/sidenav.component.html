@@ -1,0 +1,9 @@
+<mat-list role="list">
+    <mat-list-item role="listitem" *ngFor="let option of sideNavContent"
+                   routerLink="/{{option.link}}" routerLinkActive="active">
+                   <div class="alignDiv">
+                    <mat-icon>{{option.icon}}</mat-icon>{{option.title | titlecase}}
+                   </div>
+    </mat-list-item>
+</mat-list>
+

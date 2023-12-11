@@ -1,0 +1,24 @@
+.mat-form-field{
+    width: 48%;
+    padding: 1%;
+}
+.example-form{
+    display:flex;
+    flex-direction:column;
+    .full-width{
+        display: flex;
+        mat-form-field{
+            width: 100%!important;
+        }
+        .spacer{
+            width: 30px;
+        }
+        .msgRed{
+            color: red;
+        }
+    }
+}
+.my-table{
+    padding: 20px 20px;
+    margin: 30px 30px;
+}

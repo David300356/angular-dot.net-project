@@ -1,0 +1,78 @@
+<div class="search-cover">
+    <div class="search">
+        <h2>Search persons</h2>
+        <div class="search-input">
+            <mat-form-field appearance="outline" color="accent">
+                <mat-label>Search By ID Number</mat-label>
+                <input matInput (input)="search(searchField.value)" #searchField>
+                <button mat-icon-button matSuffix>
+                    <mat-icon>search</mat-icon>
+                </button>
+            </mat-form-field>
+        </div>
+        <div class="search-details">
+            <h2>Persons Details</h2>
+            <div class="profile">
+                <div class="prof-image">
+                    <img src="../../assets/images (29).jpeg" alt="profile-image">
+                </div>
+                <div class="prof-details">
+                    <table>
+                        <tr>
+                            <th>Name</th>
+                            <td>David Ochieng Oyayo</td>   
+                        </tr>
+                        <tr>
+                            <th>Phone</th>
+                            <td>254703525414</td>
+                        </tr>
+                        <tr>
+                            <th>Email</th>
+                            <td>oyayodavid698@gmail.com</td>
+                        </tr>
+                        <tr>
+                            <th>Nationality</th>
+                            <td>Kenyan</td>
+                        </tr>
+                        <tr>
+                            <th>City</th>
+                            <td>Nairobi</td>
+                        </tr>
+                        <tr>
+                            <th>Address</th>
+                            <td>james gichuru road westlands,Nairobi</td>
+                        </tr>
+                        <tr>
+                            <th>Gender</th>
+                            <td>Male</td>
+                        </tr>
+                        <tr>
+                            <th>ID number</th>
+                            <td>35953284</td>
+                        </tr>
+                    </table>
+              
+                </div>
+            </div>
+        </div>
+        <div class="search-history">
+            <h2>Name History</h2>
+            <table>
+                <tr>
+                    <th>Complainant</th>
+                    <th>Reported</th>
+                    <th>Case Name</th>
+                    <th>Involvement</th>
+                    <th>Invesigating officer</th>
+                </tr>
+                <tr>
+                    <td>Kennedy Omondi</td>
+                    <td>02/05/2012</td>
+                    <td>831/1/2019</td>
+                    <td>Rape,defilement,treason,murder</td>
+                    <td>Wekesa Jacob</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,58 @@
+
+<div class="cover-details">
+    <div class="details">
+        <h2>{{product?.name}} Details</h2>
+        <ul>
+            <div class="myRow">
+                <li>Name</li><p>{{product?.name}}</p>
+            </div>
+            <div class="myRow">
+                <li>Phone</li><p>{{product?.phone}}</p>
+            </div>
+            <div class="myRow">
+                <li>Email</li><p>{{product?.email}}</p>
+            </div>
+            <div class="myRow">
+                <li>SerialNumber</li><p>{{product?.serialNumber}}</p>
+            </div>
+            <div class="myRow">
+                <li>ID Number</li><p>{{product?.idNumber}}</p>
+            </div>
+            <div class="myRow">
+                <li>Created On</li><p>{{product?.createdOn}}</p>
+            </div>
+            <div class="myRow">
+                <li>Rank</li><p>{{product?.rank.rankName}}</p>
+            </div>
+            <div class="myRow">
+                <li>Station</li>
+                <div>
+                    <table>
+                        <tr>
+                            <th>Station Name</th>
+                            <td>{{product?.station.name}}</td>
+                        </tr>
+                        <tr>
+                            <th>Station Code</th>
+                            <td>{{product?.station.code}}</td>
+                        </tr>
+                        <tr>
+                            <th>Station City</th>
+                            <td>{{product?.station.city}}</td>
+                        </tr>
+                        <tr>
+                            <th>Station Address</th>
+                            <td>{{product?.station.address}}</td>
+                        </tr>
+                        <tr>
+                            <th>Station Phone Number</th>
+                            <td>{{product?.station.phone}}</td>
+                        </tr>
+                    </table>
+                </div>
+                
+            </div>
+        </ul>
+        <a mat-raised-button color="accent" appOpenPolice (click)="goBack()" >Go To List</a>
+    </div>
+</div>

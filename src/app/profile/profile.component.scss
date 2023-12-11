@@ -1,0 +1,33 @@
+.profile-cover{
+    padding: 50px 50px;
+    background-color: rgb(255, 255, 255);
+    .profile{
+        display: flex;
+        .prof-image{
+            img{
+                border-radius: 10px;
+                width: 80%;
+            }
+        }
+        //justify-content: space-between;
+        .prof-details{
+            width: 70%;
+            table{
+                width: 80%;
+                margin: 0px 20px;
+                font-family: poppins;
+                tr{
+                    display: flex;
+                    justify-content: space-between;
+                    padding: 15px 0;
+                    span{
+                        background-color: green;
+                        border-radius: 10px;
+                        color: white;
+                        padding: 5px 20px;
+                    }
+                }
+            }
+        }
+    }
+}

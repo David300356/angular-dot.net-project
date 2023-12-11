@@ -1,0 +1,76 @@
+<div class="court-cover">
+    <div class="court">
+        <h2>Court Attendance details</h2>
+        <div class="court-form">
+            <mat-form-field appearance="outline" color="accent">
+                <mat-label>Court Name</mat-label>
+                <input matInput #searchField>
+            </mat-form-field>
+            <div class="court-item">
+                <mat-form-field appearance="outline" color="accent">
+                    <mat-label>Court Date</mat-label>
+                    <input type="datetime-local" matInput #searchField>
+                </mat-form-field>
+                <mat-form-field appearance="outline" color="accent">
+                    <mat-label>Accussed ID Number</mat-label>
+                    <mat-select formControlName="station">
+                        <mat-option>David
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+            <div class="court-item">
+                <mat-form-field appearance="outline" color="accent">
+                    <mat-label>Court File Number</mat-label>
+                    <input matInput #searchField>
+                </mat-form-field>
+                <mat-form-field appearance="outline" color="accent">
+                    <mat-label>CRO DOCKET NUMBER</mat-label>
+                    <input matInput #searchField>
+                </mat-form-field>
+            </div>
+            <div class="example-button-row" style="padding: 1%">
+                <button mat-raised-button color="primary">Save</button> |
+                <a mat-raised-button color="accent">Cancel</a>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- <mat-form-field appearance="outline" color="accent">
+    <mat-label>Search Arrest</mat-label>
+    <input matInput (input)="search(searchField.value)" #searchField>
+    <button mat-icon-button matSuffix>
+        <mat-icon>search</mat-icon>
+    </button>
+</mat-form-field> -->
+<!-- <div class="mat-elevation-z8 my-table" *ngIf="islisting">
+    <table class="mat-elevation-z8" mat-table matSort [dataSource]="dataSource" >
+        <ng-container matColumnDef="id">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> ID</th>
+            <td mat-cell *matCellDef="let element">{{element.id}}</td>
+        </ng-container>
+        <ng-container matColumnDef="report">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> OB</th>
+            <td mat-cell *matCellDef="let element">{{element.report.ob}}</td>
+        </ng-container>
+       
+        <ng-container matColumnDef="suspectss">
+            <th mat-header-cell *matHeaderCellDef> Suspect</th>
+            <td mat-cell *matCellDef="let element">{{element.suspect.name}}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="createdOn">
+            <th mat-header-cell *matHeaderCellDef> Date</th>
+            <td mat-cell *matCellDef="let element">{{element.createdOn}}</td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayColums"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayColums;"></tr>
+    </table>
+    <mat-paginator #paginator [length]="totalSize" [pageIndex]="currentPage" [pageSize]="pageSize" (page)="handlePage($event)" [pageSizeOptions]="[5,10, 20]" [showFirstLastButtons]="true">
+    </mat-paginator>
+</div> -->
+<div class="">
+    <router-outlet></router-outlet>
+</div>
+
